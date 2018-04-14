@@ -90,8 +90,9 @@ public class DictionaryModelImpl implements DictionaryModel
                         if (extract == null) {
                             text = "No Results";
                         } else {
-                            lastDef=extract.getTextContent();
+
                             text = extract.getTextContent().replace("\\n", "\n");
+                            lastDef=text;
                             text = textToHtml(text, input);
 
                             // save to DB  <o/
@@ -120,7 +121,7 @@ public class DictionaryModelImpl implements DictionaryModel
 
     private void notifyListener() {
         if (listener != null) {
-            listener.didUpdateDictionary();
+            listener.didUpdateDictionary(lastDef);
         }
     }
 

@@ -56,16 +56,25 @@ public class MainActivity extends AppCompatActivity {
 
     dictionaryModel.setListener(new DictionaryModelListener() {
       @Override
-      public void didUpdateDictionary() {
-        insertarDefinicion();
+      public void didUpdateDictionary(String lastDef) {
+        insertarDefinicion(lastDef);
       }
     });
   }
 
-  private void insertarDefinicion() {
-    Dictionary dictionary = dictionaryModel.getDictionary();
-    String input = textField1.getText().toString();
-    String definicion = dictionary.getMeaning(input);
-    textPane1.setText(definicion);
+  private void insertarDefinicion(String lastDef) {
+
+    textPane1.setText(textToHtml(lastDef,textField1.getText().toString()));
   }
+
+  public static String textToHtml(String text, String term) {
+
+        StringBuilder builder = new StringBuilder();
+
+        String textWithBold = text.replaceAll("(?i)" + term, "<b>" + term + "</b>");
+
+        builder.append(textWithBold);
+
+        return builder.toString();
+    }
 }
