@@ -28,7 +28,6 @@ public class Dictionary {
       Log.e("**", "term =" + concept.getTerm());
       Log.e("**", "meaning =" + concept.getMeaning());
       Log.e("**", "source =" + concept.getSource());
-
     }
   }
 
@@ -49,5 +48,4 @@ public class Dictionary {
     }
     return null;
   }
-
 }
