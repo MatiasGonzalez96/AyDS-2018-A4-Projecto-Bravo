@@ -1,5 +1,7 @@
 package ayds.dictionary.bravo.fulllogic.Controller;
 
+import android.util.Log;
+
 import ayds.dictionary.bravo.fulllogic.Model.DictionaryModel;
 
 public class EditDictionaryControllerImpl implements EditDictionaryController {
@@ -11,6 +13,7 @@ public class EditDictionaryControllerImpl implements EditDictionaryController {
 
     @Override
     public void buscarTermino(String input) {
+        Log.e("**", "estoy en el controlador");
         dictionaryModel.buscarTermino(input);
     }
 }

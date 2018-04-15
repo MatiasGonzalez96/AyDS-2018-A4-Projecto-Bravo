@@ -2,6 +2,7 @@ package ayds.dictionary.bravo.fulllogic.View;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,8 +12,6 @@ import android.widget.TextView;
 import ayds.dictionary.bravo.R;
 import ayds.dictionary.bravo.fulllogic.Controller.DictionaryControllerModule;
 import ayds.dictionary.bravo.fulllogic.Controller.EditDictionaryController;
-import ayds.dictionary.bravo.fulllogic.DataBase;
-import ayds.dictionary.bravo.fulllogic.Model.Dictionary;
 import ayds.dictionary.bravo.fulllogic.Model.DictionaryModel;
 import ayds.dictionary.bravo.fulllogic.Model.DictionaryModelListener;
 import ayds.dictionary.bravo.fulllogic.Model.DictionaryModelModule;
@@ -63,8 +62,12 @@ public class MainActivity extends AppCompatActivity {
   }
 
   private void insertarDefinicion(String lastDef) {
-
-    textPane1.setText(textToHtml(lastDef,textField1.getText().toString()));
+    Log.e("**", "LLEGO "+lastDef);
+    //textPane1.setText(lastDef);
+    if (lastDef !=null)
+    {
+      textPane1.setText(Html.fromHtml(textToHtml(lastDef,textField1.getText().toString())));
+    }
   }
 
   public static String textToHtml(String text, String term) {

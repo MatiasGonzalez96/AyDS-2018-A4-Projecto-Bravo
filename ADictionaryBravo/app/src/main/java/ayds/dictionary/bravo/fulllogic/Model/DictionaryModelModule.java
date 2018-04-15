@@ -1,6 +1,11 @@
 package ayds.dictionary.bravo.fulllogic.Model;
 
 import android.content.Context;
+import android.util.Log;
+
+import ayds.dictionary.bravo.fulllogic.Model.BDD.Dictionary;
+import ayds.dictionary.bravo.fulllogic.Model.Servicios.Servicio;
+import ayds.dictionary.bravo.fulllogic.Model.Servicios.ServicioImpl;
 
 public class DictionaryModelModule
 {
@@ -9,7 +14,23 @@ public class DictionaryModelModule
 
     private DictionaryModelModule(Context context)
     {
-        dictionaryModel =  new DictionaryModelImpl(context);
+        init(context);
+        Servicio servicioImpl=new ServicioImpl();
+        Repositorio repositorioImpl=new RepositorioImpl(servicioImpl);
+        dictionaryModel =  new DictionaryModelImpl(repositorioImpl);
+    }
+
+    private void init(final Context context) {
+
+        new Thread(new Runnable() {
+            @Override public void run() {
+                Dictionary.createNewDatabase(context);
+                Dictionary.saveTerm("test", "sarasa");
+
+                Log.e("**", "" + Dictionary.getMeaning("test"));
+                Log.e("**", "" + Dictionary.getMeaning("nada"));
+            }
+        }).start();
     }
 
     public static DictionaryModelModule getInstance(Context context) {
