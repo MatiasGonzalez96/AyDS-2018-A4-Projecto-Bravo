@@ -20,11 +20,12 @@ public class DictionaryModelImpl implements DictionaryModel
     }
 
 
-    @Override public void buscarTermino(String input) {
-        buscarTerminoNow(input);
-        notifyListener();
+    @Override public void buscarTermino(final String input) {
 
-    }
+                buscarTerminoNow(input);
+                notifyListener();
+            }
+
 
     private void buscarTerminoNow(final String input)
     {

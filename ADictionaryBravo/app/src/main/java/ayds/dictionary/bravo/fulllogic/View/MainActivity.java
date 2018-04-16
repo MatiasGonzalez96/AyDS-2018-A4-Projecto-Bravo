@@ -48,8 +48,13 @@ public class MainActivity extends AppCompatActivity {
   {
     goButton.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
+        new Thread(new Runnable() {
+          public void run() {
+            editDictionaryController.buscarTermino(textField1.getText().toString());
 
-        editDictionaryController.buscarTermino(textField1.getText().toString());
+          }
+        }).start();
+
       }
     });
 
@@ -61,12 +66,15 @@ public class MainActivity extends AppCompatActivity {
     });
   }
 
-  private void insertarDefinicion(String lastDef) {
+  private void insertarDefinicion(final String lastDef) {
     Log.e("**", "LLEGO "+lastDef);
     //textPane1.setText(lastDef);
     if (lastDef !=null)
     {
-      textPane1.setText(Html.fromHtml(textToHtml(lastDef,textField1.getText().toString())));
+      runOnUiThread(new Runnable() {
+        public void run() {
+          textPane1.setText(Html.fromHtml(textToHtml(lastDef, textField1.getText().toString())));
+        }});
     }
   }
 

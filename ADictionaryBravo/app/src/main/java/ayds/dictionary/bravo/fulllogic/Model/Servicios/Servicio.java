@@ -4,5 +4,5 @@ import retrofit2.Response;
 
 public interface Servicio {
     void conectar();
-    Response<String> getMeaning(String input);
+    String getMeaning(String input);
 }
