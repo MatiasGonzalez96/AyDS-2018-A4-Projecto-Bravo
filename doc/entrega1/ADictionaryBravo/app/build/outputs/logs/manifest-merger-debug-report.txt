@@ -1,0 +1,111 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:1-23:12
+MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\d27ef50b06f7b6d680a6cf79a85afa67\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence.room:runtime:1.0.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\dbf5bd4f9df191f631f6dc73bca15582\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\8786cec093189e3de405f02e5dbacfc9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\7035696f6360f4fa66bd90004f5a204d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\703665bd72267043c813805995024ce2\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db-framework:1.0.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0.aar\a138631bfd27909de88033d466416c0d\AndroidManifest.xml:17:1-24:12
+MERGED from [android.arch.persistence:db:1.0.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\db-1.0.0.aar\7099b1e4a3e3354746c2434d7375ac0f\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\50d7655eaf06dd180ac791fd3ed64578\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\7df90d42cecba9fd3fd7dcdf5ff03861\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\1124101c3f35799014565c139398b4f6\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\cbf28d482ad023818b7891e543b53647\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\c2cb91b3c0158199f9f923042dab6af0\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\87f9e3b203ef595d4d06e29121bd3931\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d523ea49a6a1daadbdec68592819f9da\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:1-23:12
+	package
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:11-42
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:1-23:12
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:2:1-23:12
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:3:3-61
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:5:3-65
+	android:name
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:5:20-62
+application
+ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:7:3-21:17
+	android:supportsRtl
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:12:5-31
+	android:label
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:10:5-46
+	android:roundIcon
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:11:5-50
+	android:icon
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:9:5-39
+	android:allowBackup
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:8:5-31
+	android:theme
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:13:5-36
+activity#ayds.dictionary.bravo.fulllogic.View.MainActivity
+ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:14:5-20:16
+	android:name
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:14:15-58
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:15:7-19:23
+action#android.intent.action.MAIN
+ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:16:9-61
+	android:name
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:16:17-58
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:18:9-69
+	android:name
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml:18:19-66
+uses-sdk
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\d27ef50b06f7b6d680a6cf79a85afa67\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.0.aar\d27ef50b06f7b6d680a6cf79a85afa67\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.0.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\dbf5bd4f9df191f631f6dc73bca15582\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.persistence.room:runtime:1.0.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\dbf5bd4f9df191f631f6dc73bca15582\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\8786cec093189e3de405f02e5dbacfc9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.0.aar\8786cec093189e3de405f02e5dbacfc9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\7035696f6360f4fa66bd90004f5a204d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.0.aar\7035696f6360f4fa66bd90004f5a204d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\703665bd72267043c813805995024ce2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.0.aar\703665bd72267043c813805995024ce2\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.0.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0.aar\a138631bfd27909de88033d466416c0d\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.persistence:db-framework:1.0.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\db-framework-1.0.0.aar\a138631bfd27909de88033d466416c0d\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.persistence:db:1.0.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\db-1.0.0.aar\7099b1e4a3e3354746c2434d7375ac0f\AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.persistence:db:1.0.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\db-1.0.0.aar\7099b1e4a3e3354746c2434d7375ac0f\AndroidManifest.xml:20:5-22:41
+MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\50d7655eaf06dd180ac791fd3ed64578\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.0.aar\50d7655eaf06dd180ac791fd3ed64578\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\7df90d42cecba9fd3fd7dcdf5ff03861\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.0.aar\7df90d42cecba9fd3fd7dcdf5ff03861\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\1124101c3f35799014565c139398b4f6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.0.aar\1124101c3f35799014565c139398b4f6\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\cbf28d482ad023818b7891e543b53647\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\cbf28d482ad023818b7891e543b53647\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\c2cb91b3c0158199f9f923042dab6af0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\c2cb91b3c0158199f9f923042dab6af0\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\87f9e3b203ef595d4d06e29121bd3931\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\87f9e3b203ef595d4d06e29121bd3931\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d523ea49a6a1daadbdec68592819f9da\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\a_str\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d523ea49a6a1daadbdec68592819f9da\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\a_str\Documents\AyDS-2018-A4-Projecto-Bravo\ADictionaryBravo\app\src\main\AndroidManifest.xml
