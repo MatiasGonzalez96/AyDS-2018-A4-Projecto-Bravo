@@ -2,5 +2,6 @@ package ayds.dictionary.bravo.fulllogic.Controller;
 
 public interface EditDictionaryController
 {
-    void buscarTermino(String input);
+    void askForTerm(String input);
 }
+

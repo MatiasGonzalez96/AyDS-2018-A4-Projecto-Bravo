@@ -1,19 +1,19 @@
 package ayds.dictionary.bravo.fulllogic.Controller;
 
-import android.util.Log;
-
 import ayds.dictionary.bravo.fulllogic.Model.DictionaryModel;
 
-public class EditDictionaryControllerImpl implements EditDictionaryController {
+public class EditDictionaryControllerImpl implements EditDictionaryController
+{
     private DictionaryModel dictionaryModel;
 
-    EditDictionaryControllerImpl(DictionaryModel dictionaryModel) {
+    EditDictionaryControllerImpl(DictionaryModel dictionaryModel)
+    {
         this.dictionaryModel = dictionaryModel;
     }
 
     @Override
-    public void buscarTermino(String input) {
-        Log.e("**", "estoy en el controlador");
-        dictionaryModel.buscarTermino(input);
+    public void askForTerm(String input)
+    {
+        dictionaryModel.searchTerm(input);
     }
 }

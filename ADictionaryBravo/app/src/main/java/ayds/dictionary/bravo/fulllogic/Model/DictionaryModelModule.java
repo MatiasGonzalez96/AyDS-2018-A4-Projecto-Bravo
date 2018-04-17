@@ -1,12 +1,11 @@
 package ayds.dictionary.bravo.fulllogic.Model;
 
 import android.content.Context;
-import android.util.Log;
 
-import ayds.dictionary.bravo.fulllogic.Model.BDD.Dictionary;
-import ayds.dictionary.bravo.fulllogic.Model.BDD.DictionaryDataBase;
-import ayds.dictionary.bravo.fulllogic.Model.Servicios.Servicio;
-import ayds.dictionary.bravo.fulllogic.Model.Servicios.ServicioImpl;
+import ayds.dictionary.bravo.fulllogic.Model.DataBase.Dictionary;
+import ayds.dictionary.bravo.fulllogic.Model.DataBase.DictionaryDataBase;
+import ayds.dictionary.bravo.fulllogic.Model.Services.Service;
+import ayds.dictionary.bravo.fulllogic.Model.Services.ServiceImpl;
 
 public class DictionaryModelModule
 {
@@ -16,29 +15,16 @@ public class DictionaryModelModule
 
     private DictionaryModelModule(Context context)
     {
-
-        dataBase=new Dictionary(context);
-        init(context);
-        Servicio servicioImpl=new ServicioImpl();
-        Repositorio repositorioImpl=new RepositorioImpl(servicioImpl,dataBase);
-        dictionaryModel =  new DictionaryModelImpl(repositorioImpl);
+        dataBase = new Dictionary(context);
+        Service serviceImpl =new ServiceImpl();
+        Repository repositoryImpl =new RepositoryImpl(serviceImpl,dataBase);
+        dictionaryModel =  new DictionaryModelImpl(repositoryImpl);
     }
 
-    private void init(final Context context) {
-
-        new Thread(new Runnable() {
-            @Override public void run() {
-
-                dataBase.saveTerm("test", "sarasa");
-
-                Log.e("**", "" + dataBase.getMeaning("test"));
-                Log.e("**", "" + dataBase.getMeaning("nada"));
-            }
-        }).start();
-    }
-
-    public static DictionaryModelModule getInstance(Context context) {
-        if(instance == null) {
+    public static DictionaryModelModule getInstance(Context context)
+    {
+        if(instance == null)
+        {
             instance =  new DictionaryModelModule(context);
         }
         return instance;

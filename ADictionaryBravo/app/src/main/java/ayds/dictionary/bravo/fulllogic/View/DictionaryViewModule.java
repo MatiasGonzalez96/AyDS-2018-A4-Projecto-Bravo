@@ -7,10 +7,14 @@ public class DictionaryViewModule
     private static DictionaryViewModule instance;
     private EditDictionaryController editDictionaryController;
 
-    private DictionaryViewModule() { }
+    private DictionaryViewModule() 
+    {
+    }
 
-    public static DictionaryViewModule getInstance() {
-        if (instance == null) {
+    public static DictionaryViewModule getInstance()
+    {
+        if (instance == null)
+        {
             instance = new DictionaryViewModule();
         }
         return instance;

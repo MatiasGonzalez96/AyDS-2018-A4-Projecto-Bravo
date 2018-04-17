@@ -1,43 +1,37 @@
 package ayds.dictionary.bravo.fulllogic.Model;
-import android.util.Log;
-
-
 
 public class DictionaryModelImpl implements DictionaryModel
 {
     private DictionaryModelListener listener;
-    private Repositorio repositorioImpl;
-    private String lastDef;
+    private Repository repositoryImpl;
+    private String lastDefinition;
 
-    DictionaryModelImpl(Repositorio repositorioImpl)
+    DictionaryModelImpl(Repository repositoryImpl)
     {
-        this.repositorioImpl=repositorioImpl;
-
+        this.repositoryImpl = repositoryImpl;
     }
 
-    @Override public void setListener(DictionaryModelListener listener) {
+    @Override public void setListener(DictionaryModelListener listener)
+    {
         this.listener = listener;
     }
 
-
-    @Override public void buscarTermino(final String input) {
-
-                buscarTerminoNow(input);
-                notifyListener();
-            }
-
-
-    private void buscarTerminoNow(final String input)
+    @Override public void searchTerm(final String input)
     {
-     lastDef=repositorioImpl.buscarTermino(input);
+        searchTermNow(input);
+        notifyListener();
     }
 
+    private void searchTermNow(final String input)
+    {
+        lastDefinition = repositoryImpl.searchTerm(input);
+    }
 
-    private void notifyListener() {
-        if (listener != null) {
-            Log.e("**", "ENTRE AL LISTENER");
-            listener.didUpdateDictionary(lastDef);
+    private void notifyListener()
+    {
+        if (listener != null)
+        {
+            listener.didUpdateDictionary(lastDefinition);
         }
     }
-
 }

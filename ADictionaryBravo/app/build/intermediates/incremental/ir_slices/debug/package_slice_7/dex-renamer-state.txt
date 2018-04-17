@@ -1,4 +1,4 @@
-#Mon Apr 16 09:45:16 ART 2018
-base.0=C\:\\Users\\a_str\\Documents\\AyDS-2018-A4-Projecto-Bravo\\ADictionaryBravo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\22
+#Mon Apr 16 20:15:38 ART 2018
+base.0=C\:\\Users\\Familia\\Documents\\Universidad\\AyDS\\Proyecto\\AyDS-2018-A4-Projecto-Bravo\\ADictionaryBravo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\7
 path.0=classes.dex
 renamed.0=classes.dex
