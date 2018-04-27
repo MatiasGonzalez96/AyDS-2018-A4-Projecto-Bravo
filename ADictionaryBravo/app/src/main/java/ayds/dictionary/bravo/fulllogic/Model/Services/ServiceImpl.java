@@ -1,5 +1,7 @@
 package ayds.dictionary.bravo.fulllogic.Model.Services;
 
+import android.util.Log;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -11,6 +13,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import ayds.dictionary.bravo.fulllogic.Model.DictionaryModelModule;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -18,19 +21,22 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class ServiceImpl implements Service
 {
     private WikipediaAPI wikiAPI;
+    private final String wikiAPIUrl="https://en.wikipedia.org/w/";
 
     public ServiceImpl()
     {
-        conectAPI();
+        connectAPI();
     }
 
-    public void conectAPI()
+    public void connectAPI()
     {
+
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://en.wikipedia.org/w/")
+                .baseUrl(wikiAPIUrl)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
         wikiAPI = retrofit.create(WikipediaAPI.class);
+        Log.e("**", ""+wikiAPI);
     }
 
     public String getMeaning(String input)
@@ -41,7 +47,7 @@ public class ServiceImpl implements Service
             Node extract = getExtract(callResponse);
             if(extract==null)
             {
-                return "No Results";
+                return null;
             }
             else
             {
@@ -50,7 +56,8 @@ public class ServiceImpl implements Service
         }
         catch (IOException e)
         {
-            e.printStackTrace();
+            Log.e("**","error de conexion");
+            DictionaryModelModule.getInstance(null).getDictionaryErrorListener().didFindError();
         }
         return null;
     }

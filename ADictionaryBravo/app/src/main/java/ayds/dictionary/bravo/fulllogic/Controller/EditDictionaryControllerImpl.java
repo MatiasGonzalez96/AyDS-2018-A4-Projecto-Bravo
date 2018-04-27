@@ -2,7 +2,7 @@ package ayds.dictionary.bravo.fulllogic.Controller;
 
 import ayds.dictionary.bravo.fulllogic.Model.DictionaryModel;
 
-public class EditDictionaryControllerImpl implements EditDictionaryController
+class EditDictionaryControllerImpl implements EditDictionaryController
 {
     private DictionaryModel dictionaryModel;
 
@@ -12,7 +12,7 @@ public class EditDictionaryControllerImpl implements EditDictionaryController
     }
 
     @Override
-    public void askForTerm(String input)
+    public void searchTerm(String input)
     {
         dictionaryModel.searchTerm(input);
     }

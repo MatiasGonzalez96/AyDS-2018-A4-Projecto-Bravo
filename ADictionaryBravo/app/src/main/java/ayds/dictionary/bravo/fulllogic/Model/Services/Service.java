@@ -1,6 +1,6 @@
 package ayds.dictionary.bravo.fulllogic.Model.Services;
 
 public interface Service {
-    void conectAPI();
+    void connectAPI();
     String getMeaning(String input);
 }

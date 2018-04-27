@@ -1,4 +1,4 @@
-package ayds.dictionary.bravo.fulllogic.room;
+package ayds.dictionary.bravo.fulllogic.Model.DataBase.room;
 
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.RoomDatabase;

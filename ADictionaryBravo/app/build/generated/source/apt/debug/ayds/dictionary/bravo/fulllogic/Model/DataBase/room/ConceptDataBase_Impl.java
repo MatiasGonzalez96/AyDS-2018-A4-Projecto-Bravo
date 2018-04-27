@@ -1,4 +1,4 @@
-package ayds.dictionary.bravo.fulllogic.room;
+package ayds.dictionary.bravo.fulllogic.Model.DataBase.room;
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.db.SupportSQLiteOpenHelper;
@@ -62,7 +62,7 @@ public class ConceptDataBase_Impl extends ConceptDataBase {
         final TableInfo _infoConcept = new TableInfo("Concept", _columnsConcept, _foreignKeysConcept, _indicesConcept);
         final TableInfo _existingConcept = TableInfo.read(_db, "Concept");
         if (! _infoConcept.equals(_existingConcept)) {
-          throw new IllegalStateException("Migration didn't properly handle Concept(ayds.dictionary.bravo.fulllogic.room.Concept).\n"
+          throw new IllegalStateException("Migration didn't properly handle Concept(ayds.dictionary.bravo.fulllogic.Model.DataBase.room.Concept).\n"
                   + " Expected:\n" + _infoConcept + "\n"
                   + " Found:\n" + _existingConcept);
         }

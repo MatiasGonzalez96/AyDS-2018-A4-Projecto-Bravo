@@ -1,37 +1,67 @@
 package ayds.dictionary.bravo.fulllogic.Model;
 
-public class DictionaryModelImpl implements DictionaryModel
+import android.util.Log;
+
+class DictionaryModelImpl implements DictionaryModel
+
 {
-    private DictionaryModelListener listener;
+    private DictionaryModelListener modelListener;
+    private DictionaryErrorListener errorListener;
     private Repository repositoryImpl;
-    private String lastDefinition;
 
     DictionaryModelImpl(Repository repositoryImpl)
     {
         this.repositoryImpl = repositoryImpl;
     }
 
-    @Override public void setListener(DictionaryModelListener listener)
+    @Override public void setModelListener(DictionaryModelListener modelListener)
     {
-        this.listener = listener;
+        this.modelListener = modelListener;
     }
+
+    @Override public void setErrorListener(DictionaryErrorListener errorListener)
+    {
+        this.errorListener = errorListener;
+    }
+
+    @Override
+    public DictionaryErrorListener getDictionaryErrorListener() {
+        Log.e("**","estoy en el modelo impl");
+        return errorListener;
+    }
+
 
     @Override public void searchTerm(final String input)
     {
-        searchTermNow(input);
-        notifyListener();
-    }
-
-    private void searchTermNow(final String input)
-    {
-        lastDefinition = repositoryImpl.searchTerm(input);
-    }
-
-    private void notifyListener()
-    {
-        if (listener != null)
+        String definition=searchTermNow(input);
+        if(definition != null)
         {
-            listener.didUpdateDictionary(lastDefinition);
+            notifyModelListener(definition);
+        }
+        else
+        {
+            notifyErrorListener();
+        }
+    }
+
+    private String searchTermNow(final String input)
+    {
+        return repositoryImpl.getTerm(input);
+    }
+
+    private void notifyModelListener(String definition)
+    {
+        if (modelListener != null)
+        {
+            modelListener.didUpdateDefinition(definition);
+        }
+    }
+
+    private void notifyErrorListener()
+    {
+        if (errorListener != null)
+        {
+            errorListener.didFindError();
         }
     }
 }

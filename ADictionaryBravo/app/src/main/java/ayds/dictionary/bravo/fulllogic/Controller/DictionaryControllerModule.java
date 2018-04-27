@@ -8,6 +8,7 @@ public class DictionaryControllerModule
 {
     private static DictionaryControllerModule instanceDictionaryControllerModule;
     private Context context;
+    private EditDictionaryController controller;
 
     private DictionaryControllerModule()
     {
@@ -22,11 +23,10 @@ public class DictionaryControllerModule
         return instanceDictionaryControllerModule;
     }
 
-    public void startApplication(Context contexto)
+    public void saveContextAndStartController(Context context)
     {
-        this.context = contexto;
-        EditDictionaryController controller = getEditDictionaryController();
-        setEditDictionaryController(controller);
+        this.context = context;
+        controller = getEditDictionaryController();
     }
 
     private EditDictionaryController getEditDictionaryController()
@@ -34,8 +34,7 @@ public class DictionaryControllerModule
         return new EditDictionaryControllerImpl(DictionaryModelModule.getInstance(context).getDictionaryModel());
     }
 
-    private void setEditDictionaryController(EditDictionaryController editDictionaryController)
-    {
-        DictionaryViewModule.getInstance().setEditDictionaryController(editDictionaryController);
+    public EditDictionaryController getController() {
+        return controller;
     }
 }

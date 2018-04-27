@@ -1,4 +1,4 @@
-package ayds.dictionary.bravo.fulllogic.room;
+package ayds.dictionary.bravo.fulllogic.Model.DataBase.room;
 
 import android.arch.persistence.db.SupportSQLiteStatement;
 import android.arch.persistence.room.EntityInsertionAdapter;

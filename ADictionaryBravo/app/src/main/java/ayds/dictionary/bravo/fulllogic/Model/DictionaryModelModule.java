@@ -1,6 +1,7 @@
 package ayds.dictionary.bravo.fulllogic.Model;
 
 import android.content.Context;
+import android.util.Log;
 
 import ayds.dictionary.bravo.fulllogic.Model.DataBase.Dictionary;
 import ayds.dictionary.bravo.fulllogic.Model.DataBase.DictionaryDataBase;
@@ -11,11 +12,10 @@ public class DictionaryModelModule
 {
     private static DictionaryModelModule instance;
     private DictionaryModel dictionaryModel;
-    private DictionaryDataBase dataBase;
 
     private DictionaryModelModule(Context context)
     {
-        dataBase = new Dictionary(context);
+        Dictionary dataBase = new Dictionary(context);
         Service serviceImpl =new ServiceImpl();
         Repository repositoryImpl =new RepositoryImpl(serviceImpl,dataBase);
         dictionaryModel =  new DictionaryModelImpl(repositoryImpl);
@@ -33,5 +33,11 @@ public class DictionaryModelModule
     public DictionaryModel getDictionaryModel()
     {
         return dictionaryModel;
+    }
+
+    public DictionaryErrorListener getDictionaryErrorListener()
+    {
+        Log.e("**","estoy en el modulo");
+        return dictionaryModel.getDictionaryErrorListener();
     }
 }

@@ -1,4 +1,4 @@
-package ayds.dictionary.bravo.fulllogic.room;
+package ayds.dictionary.bravo.fulllogic.Model.DataBase.room;
 
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
