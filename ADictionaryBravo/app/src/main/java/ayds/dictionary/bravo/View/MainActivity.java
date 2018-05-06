@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity
   private EditText inputText;
   private Button goButton;
   private TextView definitionPanel;
+  private ProgressBar progressBar;
   private DictionaryModel dictionaryModel;
   private ayds.dictionary.bravo.View.TranslateHelper translateHelper;
   private EditDictionaryController editDictionaryController;
@@ -45,17 +47,17 @@ public class MainActivity extends AppCompatActivity
     inputText = findViewById(R.id.textField1);
     goButton = findViewById(R.id.goButton);
     definitionPanel = findViewById(R.id.textPane1);
-
+    progressBar = findViewById(R.id.progressBar);
   }
 
   private void initListeners()
   {
     goButton.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
+        progressBar.setVisibility(View.VISIBLE);
         new Thread(new Runnable() {
           public void run() {
-
-              editDictionaryController.searchTerm(inputText.getText().toString());
+            editDictionaryController.searchTerm(inputText.getText().toString());
             }
 
         }).start();
@@ -90,7 +92,9 @@ public class MainActivity extends AppCompatActivity
         {
           final String outputText = translateHelper.textToHtml(lastDefinition, inputText.getText().toString());
           definitionPanel.setText(Html.fromHtml(outputText));
-        }});
+          progressBar.setVisibility(View.INVISIBLE);
+        }
+      });
     }
   }
 
@@ -100,9 +104,9 @@ public class MainActivity extends AppCompatActivity
     {
       public void run()
       {
-
         Toast.makeText(getApplicationContext(),"Error. Por favor chequee el termino ingresado y/o su conexion",Toast.LENGTH_LONG).show();
         definitionPanel.setText("");
+        progressBar.setVisibility(View.INVISIBLE);
       }
     });
   }
