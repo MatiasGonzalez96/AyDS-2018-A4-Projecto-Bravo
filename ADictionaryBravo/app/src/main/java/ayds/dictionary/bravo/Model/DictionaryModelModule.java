@@ -2,13 +2,14 @@ package ayds.dictionary.bravo.Model;
 
 import android.content.Context;
 import ayds.dictionary.bravo.Model.DataBase.Dictionary;
-import ayds.dictionary.bravo.Model.Services.Service;
-import ayds.dictionary.bravo.Model.Services.ServiceImpl;
+import Services.Service;
+import Services.ServiceImpl;
 
 public class DictionaryModelModule
 {
     private static DictionaryModelModule instance;
     private DictionaryModel dictionaryModel;
+    private ErrorHandler errorHandler;
 
     private DictionaryModelModule(Context context)
     {
@@ -16,6 +17,7 @@ public class DictionaryModelModule
         Service serviceImpl =new ServiceImpl();
         Repository repositoryImpl =new RepositoryImpl(serviceImpl,dataBase);
         dictionaryModel =  new DictionaryModelImpl(repositoryImpl);
+        errorHandler = new ErrorHandlerImpl();
     }
 
     public static DictionaryModelModule getInstance(Context context)
@@ -35,5 +37,10 @@ public class DictionaryModelModule
     public DictionaryErrorListener getDictionaryErrorListener()
     {
         return dictionaryModel.getDictionaryErrorListener();
+    }
+
+    public ErrorHandler getErrorHandler()
+    {
+       return errorHandler;
     }
 }

@@ -1,16 +1,18 @@
 package ayds.dictionary.bravo.Model;
 
-import android.util.Log;
+import java.io.IOException;
 
 import ayds.dictionary.bravo.Model.DataBase.DictionaryDataBase;
-import ayds.dictionary.bravo.Model.Services.Service;
+import Services.Service;
 
 class RepositoryImpl implements Repository
 {
     private Service serviceImpl;
     private DictionaryDataBase dataBase;
-    private final String dataBaseSavedPrefix="[*]";
-    private final String noResultsMessage="No results";
+    private final String dataBaseSavedPrefix= "[*]";
+    private final String noResultsMessage= "No Results";
+    private final String incorrectInputMessage= "Incorrect Input";
+    private final String connectionErrorMessage= "Connection Error";
 
     RepositoryImpl(Service serviceImpl, DictionaryDataBase dataBase)
     {
@@ -18,36 +20,48 @@ class RepositoryImpl implements Repository
         this.dataBase = dataBase;
     }
 
-    public String getTerm(final String input)
+    public Definition getTerm(final String input)
     {
-        String returnText;
-        if(invalidInput(input))
-        {
-            Log.e("**","Entre al if");
-            return null;
-
-        }
-        else {
-            returnText = dataBase.getMeaning(input);
-            if (returnText != null) {
-                // exists in db
-                returnText = dataBaseSavedPrefix + returnText;
+        Definition definition = null;
+        try {
+            if (invalidInput(input)) {
+                DictionaryModelModule.getInstance(null).getErrorHandler().notifyError(new ApplicationException(incorrectInputMessage));
+                return null;
             } else {
-                returnText = serviceImpl.getMeaning(input);
-                if (returnText != null) {
-                    dataBase.saveTerm(input, returnText);
+                definition = dataBase.getMeaning(input);
+                if (definition != null) {
+                    String result = dataBaseSavedPrefix + definition.getMeaning();
+                    definition.setMeaning(result);
                 } else {
-                    returnText = noResultsMessage;
+                    String result = serviceImpl.getMeaning(input);
+                    if (result != null && result != "") {
+                        definition = new Definition();
+                        definition.setTerm(input);
+                        definition.setMeaning(result);
+                        definition.setSource(Source.WIKIPEDIA);
+                        dataBase.saveTerm(definition);
+                    } else {
+                        definition = new Definition();
+                        definition.setMeaning(noResultsMessage);
+                        definition.setSource(Source.WIKIPEDIA);
+                    }
                 }
             }
         }
-        return returnText;
+        catch(IOException e)
+        {
+            DictionaryModelModule.getInstance(null).getErrorHandler().notifyError(new ApplicationException(connectionErrorMessage));
+        }
+        catch (Exception e) {
+            DictionaryModelModule.getInstance(null).getErrorHandler().notifyError(e);
+        }
+        return definition;
     }
 
     private boolean invalidInput(String input)
     {
         boolean result;
-        if(!StringHelper.getInstance().onlyLetters(input) || input.isEmpty())
+        if(!StringHelper.getInstance().onlyLetters(input) || input.isEmpty() || input == null)
         {
             result = true;
         }

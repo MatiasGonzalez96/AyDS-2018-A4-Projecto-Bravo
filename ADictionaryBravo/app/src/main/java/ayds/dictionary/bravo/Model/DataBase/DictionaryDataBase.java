@@ -1,7 +1,9 @@
 package ayds.dictionary.bravo.Model.DataBase;
 
+import ayds.dictionary.bravo.Model.Definition;
+
 public interface DictionaryDataBase
 {
-    String getMeaning(String term);
-    void saveTerm(String term, String meaning);
+    Definition getMeaning(String input);
+    void saveTerm(Definition definition);
 }

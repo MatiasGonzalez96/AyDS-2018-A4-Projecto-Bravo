@@ -27,38 +27,25 @@ class DictionaryModelImpl implements DictionaryModel
         return errorListener;
     }
 
-
     @Override public void searchTerm(final String input)
     {
-        String definition=searchTermNow(input);
+        Definition definition = searchTermNow(input);
         if(definition != null)
         {
             notifyModelListener(definition);
         }
-        else
-        {
-            notifyErrorListener();
-        }
     }
 
-    private String searchTermNow(final String input)
+    private Definition searchTermNow(String input)
     {
         return repositoryImpl.getTerm(input);
     }
 
-    private void notifyModelListener(String definition)
+    private void notifyModelListener(Definition definition)
     {
         if (modelListener != null)
         {
             modelListener.didUpdateDefinition(definition);
-        }
-    }
-
-    private void notifyErrorListener()
-    {
-        if (errorListener != null)
-        {
-            errorListener.didFindError();
         }
     }
 }
