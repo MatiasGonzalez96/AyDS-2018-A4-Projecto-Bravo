@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity
           public void run() {
             editDictionaryController.searchTerm(inputText.getText().toString());
             }
-
         }).start();
       }
     });
@@ -92,6 +91,7 @@ public class MainActivity extends AppCompatActivity
       {
         definitionPanel.setText(Html.fromHtml(outputText));
         source.setText("Search in: " + outputSource);
+        inputText.setText("");
         progressBar.setVisibility(View.GONE);
       }
     });
@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity
       {
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
         definitionPanel.setText("");
+        inputText.setText("");
         source.setText("");
         progressBar.setVisibility(View.GONE);
       }
