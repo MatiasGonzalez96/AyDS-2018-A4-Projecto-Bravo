@@ -3,12 +3,16 @@ package ayds.dictionary.bravo.View;
 import ayds.dictionary.bravo.Controller.DictionaryControllerModule;
 import ayds.dictionary.bravo.Controller.EditDictionaryController;
 
-public class DictionaryViewModule {
+public class DictionaryViewModule
+{
     private static DictionaryViewModule instance;
     private EditDictionaryController editDictionaryController;
+    private TranslateHelper translateHelper;
 
-    private DictionaryViewModule() {
+    private DictionaryViewModule()
+    {
         editDictionaryController= DictionaryControllerModule.getInstance().getController();
+        translateHelper = new TranslateHelperImpl();
     }
 
     public static DictionaryViewModule getInstance() {
@@ -24,6 +28,6 @@ public class DictionaryViewModule {
     }
 
     public TranslateHelper getTranslateHelper() {
-        return new TranslateHelperImpl();
+        return translateHelper;
     }
 }

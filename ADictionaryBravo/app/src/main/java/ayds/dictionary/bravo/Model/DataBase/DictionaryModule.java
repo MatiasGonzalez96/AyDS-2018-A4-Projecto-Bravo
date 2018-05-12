@@ -5,11 +5,11 @@ import android.content.Context;
 public class DictionaryModule
 {
     private static DictionaryModule instance;
-    private DictionaryDataBase dictionaryDataBaseImpl;
+    private DictionaryDataBase dictionaryDataBase;
 
     private DictionaryModule(Context context)
     {
-        dictionaryDataBaseImpl = new DictionaryDataBaseImpl(context);
+        dictionaryDataBase = new DictionaryDataBaseImpl(context);
     }
 
     public static DictionaryModule getInstance(Context context)
@@ -23,6 +23,6 @@ public class DictionaryModule
 
     public DictionaryDataBase getDictionaryDataBaseImpl()
     {
-        return dictionaryDataBaseImpl;
+        return dictionaryDataBase;
     }
 }
