@@ -8,16 +8,16 @@ import ayds.dictionary.bravo.Model.Exception.ExceptionModule;
 
 class RepositoryImpl implements Repository
 {
-    private Service serviceImpl;
+    private Service service;
     private DictionaryDataBase dataBase;
     private final String dataBaseSavedPrefix= "[*]";
     private final String noResultsMessage= "No Results";
     private final String incorrectInputMessage= "Incorrect Input";
     private final String connectionErrorMessage= "Connection Error";
 
-    RepositoryImpl(Service serviceImpl, DictionaryDataBase dataBase)
+    RepositoryImpl(Service service, DictionaryDataBase dataBase)
     {
-        this.serviceImpl = serviceImpl;
+        this.service = service;
         this.dataBase = dataBase;
     }
 
@@ -34,7 +34,7 @@ class RepositoryImpl implements Repository
                     String result = dataBaseSavedPrefix + definition.getMeaning();
                     definition.setMeaning(result);
                 } else {
-                    String result = serviceImpl.getMeaning(input);
+                    String result = service.getMeaning(input);
                     if (result != null && result != "") {
                         definition = new Definition();
                         definition.setTerm(input);
