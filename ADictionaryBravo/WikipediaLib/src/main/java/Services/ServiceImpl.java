@@ -19,7 +19,6 @@ public class ServiceImpl implements Service
 
     public void connectAPI()
     {
-
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(wikiAPIUrl)
                 .addConverterFactory(ScalarsConverterFactory.create())
