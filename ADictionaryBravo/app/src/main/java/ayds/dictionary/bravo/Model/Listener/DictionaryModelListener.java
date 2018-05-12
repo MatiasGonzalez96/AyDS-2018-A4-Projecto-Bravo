@@ -1,4 +1,6 @@
-package ayds.dictionary.bravo.Model;
+package ayds.dictionary.bravo.Model.Listener;
+
+import ayds.dictionary.bravo.Model.Definition;
 
 public interface DictionaryModelListener
 {

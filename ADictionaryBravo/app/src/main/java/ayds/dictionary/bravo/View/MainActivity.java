@@ -14,9 +14,9 @@ import ayds.dictionary.bravo.Model.Definition;
 import ayds.dictionary.bravo.R;
 import ayds.dictionary.bravo.Controller.DictionaryControllerModule;
 import ayds.dictionary.bravo.Controller.EditDictionaryController;
-import ayds.dictionary.bravo.Model.DictionaryErrorListener;
+import ayds.dictionary.bravo.Model.Listener.DictionaryErrorListener;
 import ayds.dictionary.bravo.Model.DictionaryModel;
-import ayds.dictionary.bravo.Model.DictionaryModelListener;
+import ayds.dictionary.bravo.Model.Listener.DictionaryModelListener;
 import ayds.dictionary.bravo.Model.DictionaryModelModule;
 
 public class MainActivity extends AppCompatActivity

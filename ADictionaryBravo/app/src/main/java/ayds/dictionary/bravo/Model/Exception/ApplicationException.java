@@ -1,4 +1,4 @@
-package ayds.dictionary.bravo.Model;
+package ayds.dictionary.bravo.Model.Exception;
 
 public class ApplicationException extends Exception
 {

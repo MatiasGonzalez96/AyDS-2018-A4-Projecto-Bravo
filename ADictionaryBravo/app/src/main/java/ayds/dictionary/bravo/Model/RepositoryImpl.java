@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import ayds.dictionary.bravo.Model.DataBase.DictionaryDataBase;
 import Services.Service;
+import ayds.dictionary.bravo.Model.Exception.ApplicationException;
+import ayds.dictionary.bravo.Model.Exception.ExceptionModule;
 
 class RepositoryImpl implements Repository
 {
@@ -25,7 +27,7 @@ class RepositoryImpl implements Repository
         Definition definition = null;
         try {
             if (invalidInput(input)) {
-                DictionaryModelModule.getInstance(null).getErrorHandler().notifyError(new ApplicationException(incorrectInputMessage));
+                ExceptionModule.getInstance().getErrorHandler().notifyError(new ApplicationException(incorrectInputMessage));
                 return null;
             } else {
                 definition = dataBase.getMeaning(input);
@@ -50,10 +52,10 @@ class RepositoryImpl implements Repository
         }
         catch(IOException e)
         {
-            DictionaryModelModule.getInstance(null).getErrorHandler().notifyError(new ApplicationException(connectionErrorMessage));
+            ExceptionModule.getInstance().getErrorHandler().notifyError(new ApplicationException(connectionErrorMessage));
         }
         catch (Exception e) {
-            DictionaryModelModule.getInstance(null).getErrorHandler().notifyError(e);
+            ExceptionModule.getInstance().getErrorHandler().notifyError(e);
         }
         return definition;
     }

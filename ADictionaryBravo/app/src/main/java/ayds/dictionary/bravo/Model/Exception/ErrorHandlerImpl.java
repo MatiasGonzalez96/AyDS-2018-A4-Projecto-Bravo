@@ -1,4 +1,6 @@
-package ayds.dictionary.bravo.Model;
+package ayds.dictionary.bravo.Model.Exception;
+
+import ayds.dictionary.bravo.Model.DictionaryModelModule;
 
 class ErrorHandlerImpl implements ErrorHandler
 {

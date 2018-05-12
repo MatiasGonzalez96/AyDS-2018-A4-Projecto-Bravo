@@ -1,5 +1,8 @@
 package ayds.dictionary.bravo.Model;
 
+import ayds.dictionary.bravo.Model.Listener.DictionaryErrorListener;
+import ayds.dictionary.bravo.Model.Listener.DictionaryModelListener;
+
 class DictionaryModelImpl implements DictionaryModel
 
 {
