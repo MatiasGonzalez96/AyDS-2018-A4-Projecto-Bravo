@@ -1,7 +1,6 @@
 package ayds.dictionary.bravo.Model;
 
 import java.io.IOException;
-
 import ayds.dictionary.bravo.Model.DataBase.DictionaryDataBase;
 import Services.Service;
 import ayds.dictionary.bravo.Model.Exception.ApplicationException;

@@ -1,10 +1,11 @@
 package ayds.dictionary.bravo.Model;
 
 import android.content.Context;
-import ayds.dictionary.bravo.Model.DataBase.Dictionary;
+
+import ayds.dictionary.bravo.Model.DataBase.DictionaryDataBase;
 import Services.Service;
 import Services.ServiceImpl;
-import ayds.dictionary.bravo.Model.Exception.ErrorHandler;
+import ayds.dictionary.bravo.Model.DataBase.DictionaryModule;
 import ayds.dictionary.bravo.Model.Listener.DictionaryErrorListener;
 
 public class DictionaryModelModule
@@ -14,7 +15,7 @@ public class DictionaryModelModule
 
     private DictionaryModelModule(Context context)
     {
-        Dictionary dataBase = new Dictionary(context);
+        DictionaryDataBase dataBase = DictionaryModule.getInstance(context).getDictionaryDataBaseImpl();
         Service serviceImpl =new ServiceImpl();
         Repository repositoryImpl =new RepositoryImpl(serviceImpl,dataBase);
         dictionaryModel =  new DictionaryModelImpl(repositoryImpl);

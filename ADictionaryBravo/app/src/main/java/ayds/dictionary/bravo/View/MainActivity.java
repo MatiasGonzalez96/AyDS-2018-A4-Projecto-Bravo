@@ -9,7 +9,6 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import ayds.dictionary.bravo.Model.Definition;
 import ayds.dictionary.bravo.R;
 import ayds.dictionary.bravo.Controller.DictionaryControllerModule;
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity
   private TextView definitionPanel, source;
   private ProgressBar progressBar;
   private DictionaryModel dictionaryModel;
-  private ayds.dictionary.bravo.View.TranslateHelper translateHelper;
+  private TranslateHelper translateHelper;
   private EditDictionaryController editDictionaryController;
 
   @Override
