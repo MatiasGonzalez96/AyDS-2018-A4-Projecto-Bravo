@@ -2,8 +2,6 @@ package ayds.dictionary.bravo.View;
 
 class TranslateHelperImpl implements TranslateHelper
 {
-    TranslateHelperImpl(){}
-
     public String textToHtml(String text, String term)
     {
         StringBuilder builder = new StringBuilder();

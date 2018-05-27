@@ -3,28 +3,29 @@ package ayds.dictionary.bravo.View;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import ayds.dictionary.bravo.Model.Definition;
 import ayds.dictionary.bravo.R;
 import ayds.dictionary.bravo.Controller.DictionaryControllerModule;
 import ayds.dictionary.bravo.Controller.EditDictionaryController;
-import ayds.dictionary.bravo.Model.DictionaryErrorListener;
+import ayds.dictionary.bravo.Model.Listener.DictionaryErrorListener;
 import ayds.dictionary.bravo.Model.DictionaryModel;
-import ayds.dictionary.bravo.Model.DictionaryModelListener;
+import ayds.dictionary.bravo.Model.Listener.DictionaryModelListener;
 import ayds.dictionary.bravo.Model.DictionaryModelModule;
 
 public class MainActivity extends AppCompatActivity
 {
   private EditText inputText;
   private Button goButton;
-  private TextView definitionPanel;
+  private TextView definitionPanel, source;
+  private ProgressBar progressBar;
   private DictionaryModel dictionaryModel;
-  private ayds.dictionary.bravo.View.TranslateHelper translateHelper;
+  private TranslateHelper translateHelper;
   private EditDictionaryController editDictionaryController;
 
   @Override
@@ -43,21 +44,21 @@ public class MainActivity extends AppCompatActivity
   private void initComponents()
   {
     inputText = findViewById(R.id.textField1);
+    source = findViewById(R.id.title);
     goButton = findViewById(R.id.goButton);
     definitionPanel = findViewById(R.id.textPane1);
-
+    progressBar = findViewById(R.id.progressBar);
   }
 
   private void initListeners()
   {
     goButton.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
+        progressBar.setVisibility(View.VISIBLE);
         new Thread(new Runnable() {
           public void run() {
-
-              editDictionaryController.searchTerm(inputText.getText().toString());
+            editDictionaryController.searchTerm(inputText.getText().toString());
             }
-
         }).start();
       }
     });
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity
     dictionaryModel.setModelListener(new DictionaryModelListener()
     {
       @Override
-      public void didUpdateDefinition(String lastDefinition) {
+      public void didUpdateDefinition(Definition lastDefinition) {
         insertDefinition(lastDefinition);
       }
     });
@@ -73,36 +74,40 @@ public class MainActivity extends AppCompatActivity
     dictionaryModel.setErrorListener(new DictionaryErrorListener()
     {
       @Override
-      public void didFindError() {
-        Log.e("**","estoy en el oyente");
-        showError();
+      public void didFindError(String message) {
+        showError(message);
       }
     });
   }
 
-  private void insertDefinition(final String lastDefinition)
+  private void insertDefinition(final Definition lastDefinition)
   {
-    if (lastDefinition != null)
+    String searchedWord = inputText.getText().toString();
+    final String outputText = translateHelper.textToHtml(lastDefinition.getMeaning(), searchedWord);
+    final String outputSource = lastDefinition.getSource().toString();
+    runOnUiThread(new Runnable()
     {
-      runOnUiThread(new Runnable()
+      public void run()
       {
-        public void run()
-        {
-          final String outputText = translateHelper.textToHtml(lastDefinition, inputText.getText().toString());
-          definitionPanel.setText(Html.fromHtml(outputText));
-        }});
-    }
+        definitionPanel.setText(Html.fromHtml(outputText));
+        source.setText("Search in: " + outputSource);
+        inputText.setText("");
+        progressBar.setVisibility(View.GONE);
+      }
+    });
   }
 
-  private void showError()
+  private void showError(final String message)
   {
     runOnUiThread(new Runnable()
     {
       public void run()
       {
-
-        Toast.makeText(getApplicationContext(),"Error. Por favor chequee el termino ingresado y/o su conexion",Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
         definitionPanel.setText("");
+        inputText.setText("");
+        source.setText("");
+        progressBar.setVisibility(View.GONE);
       }
     });
   }
