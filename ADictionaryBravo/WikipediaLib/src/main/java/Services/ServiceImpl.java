@@ -5,13 +5,13 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-public class ServiceImpl implements Service
+class ServiceImpl implements Service
 {
     private WikipediaAPI wikiAPI;
     private final String wikiAPIUrl="https://en.wikipedia.org/w/";
     private ExtractHelper extractHelper;
 
-    public ServiceImpl()
+    ServiceImpl()
     {
         connectAPI();
         extractHelper = ServiceModule.getInstance().getExtractHelper();

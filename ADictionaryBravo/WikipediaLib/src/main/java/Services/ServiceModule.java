@@ -4,10 +4,12 @@ public class ServiceModule
 {
     private static ServiceModule instance;
     private ExtractHelper extractHelper;
+    private Service service;
 
     private ServiceModule()
     {
         extractHelper = new ExtractHelperImpl();
+        service = new ServiceImpl();
     }
 
     public static ServiceModule getInstance()
@@ -22,5 +24,10 @@ public class ServiceModule
     public ExtractHelper getExtractHelper()
     {
         return extractHelper;
+    }
+
+    public Service getService()
+    {
+        return service;
     }
 }

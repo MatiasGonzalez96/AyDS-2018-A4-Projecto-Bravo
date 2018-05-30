@@ -1,7 +1,7 @@
 #Internal package file, do not edit.
-#Sat May 12 01:39:10 ART 2018
+#Wed May 30 08:35:01 ART 2018
 0.baseType=DIRECTORY
-0.base=C\:\\Users\\Mati\\Documents\\AyDS-2018-A4-Projecto-Bravo\\ADictionaryBravo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.base=C\:\\Users\\Mati\\Documents\\Universidad\\AyDS\\AyDS-2018-A4-Projecto-Bravo\\ADictionaryBravo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 0.path=classes.dex
 0.set=DEX
 count=1

@@ -4,21 +4,23 @@ import java.io.IOException;
 import ayds.dictionary.bravo.Model.DataBase.DictionaryDataBase;
 import Services.Service;
 import ayds.dictionary.bravo.Model.Exception.ApplicationException;
-import ayds.dictionary.bravo.Model.Exception.ExceptionModule;
+import ayds.dictionary.bravo.Model.Exception.ErrorHandler;
 
 class RepositoryImpl implements Repository
 {
     private Service service;
     private DictionaryDataBase dataBase;
+    private ErrorHandler errorHandler;
     private final String dataBaseSavedPrefix= "[*]";
     private final String noResultsMessage= "No Results";
     private final String incorrectInputMessage= "Incorrect Input";
     private final String connectionErrorMessage= "Connection Error";
 
-    RepositoryImpl(Service service, DictionaryDataBase dataBase)
+    RepositoryImpl(Service service, DictionaryDataBase dataBase, ErrorHandler errorHandler)
     {
         this.service = service;
         this.dataBase = dataBase;
+        this.errorHandler = errorHandler;
     }
 
     public Definition getTerm(final String input)
@@ -26,7 +28,7 @@ class RepositoryImpl implements Repository
         Definition definition = null;
         try {
             if (invalidInput(input)) {
-                ExceptionModule.getInstance().getErrorHandler().notifyError(new ApplicationException(incorrectInputMessage));
+                errorHandler.notifyError(new ApplicationException(incorrectInputMessage));
                 return null;
             } else {
                 definition = dataBase.getMeaning(input);
@@ -51,10 +53,10 @@ class RepositoryImpl implements Repository
         }
         catch(IOException e)
         {
-            ExceptionModule.getInstance().getErrorHandler().notifyError(new ApplicationException(connectionErrorMessage));
+            errorHandler.notifyError(new ApplicationException(connectionErrorMessage));
         }
         catch (Exception e) {
-            ExceptionModule.getInstance().getErrorHandler().notifyError(e);
+            errorHandler.notifyError(e);
         }
         return definition;
     }
