@@ -9,7 +9,7 @@ public class ServiceModule
     private ServiceModule()
     {
         extractHelper = new ExtractHelperImpl();
-        service = new ServiceImpl();
+        service = new ServiceImpl(extractHelper);
     }
 
     public static ServiceModule getInstance()

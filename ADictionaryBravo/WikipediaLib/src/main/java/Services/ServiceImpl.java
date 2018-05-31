@@ -11,10 +11,10 @@ class ServiceImpl implements Service
     private final String wikiAPIUrl="https://en.wikipedia.org/w/";
     private ExtractHelper extractHelper;
 
-    ServiceImpl()
+    ServiceImpl(ExtractHelper extractHelper)
     {
         connectAPI();
-        extractHelper = ServiceModule.getInstance().getExtractHelper();
+        this.extractHelper = extractHelper;
     }
 
     public void connectAPI()
