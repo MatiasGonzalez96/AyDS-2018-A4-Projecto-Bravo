@@ -1,1 +1,1 @@
-include ':app', ':WikipediaLib'
+include ':app', ':wikipediaservice'
