@@ -1,0 +1,3 @@
+[submodule "ADictionaryBravo/wikipediaservice"]
+	path = ADictionaryBravo/wikipediaservice
+	url = https://github.com/astreiten/wikipediaservice

@@ -1,6 +1,7 @@
 package Services;
 
 import java.io.IOException;
+
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
@@ -19,6 +20,7 @@ class ServiceImpl implements Service
 
     public void connectAPI()
     {
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(wikiAPIUrl)
                 .addConverterFactory(ScalarsConverterFactory.create())
