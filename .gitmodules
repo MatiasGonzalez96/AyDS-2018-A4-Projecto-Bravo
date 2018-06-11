@@ -1,3 +1,9 @@
 [submodule "ADictionaryBravo/wikipediaservice"]
 	path = ADictionaryBravo/wikipediaservice
 	url = https://github.com/astreiten/wikipediaservice
+[submodule "ADictionaryBravo/yandexservice"]
+	path = ADictionaryBravo/yandexservice
+	url = https://github.com/tomasfelder/yandexservice
+[submodule "ADictionaryBravo/bigHugeLabsLib"]
+	path = ADictionaryBravo/bigHugeLabsLib
+	url = https://github.com/joacolabrisca/bigHugeLabsLib

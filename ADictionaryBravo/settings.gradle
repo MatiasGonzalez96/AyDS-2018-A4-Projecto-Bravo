@@ -1,1 +1,3 @@
 include ':app', ':wikipediaservice'
+include ':app', ':yandexservice'
+include ':app', ':bigHugeLabsLib'
