@@ -2,13 +2,13 @@ package ayds.dictionary.bravo.Model;
 
 import java.io.IOException;
 import ayds.dictionary.bravo.Model.DataBase.DictionaryDataBase;
-import Services.Service;
 import ayds.dictionary.bravo.Model.Exception.ApplicationException;
 import ayds.dictionary.bravo.Model.Exception.ErrorHandler;
+import wikipedia.service.WikipediaService;
 
 class RepositoryImpl implements Repository
 {
-    private Service service;
+    private WikipediaService service;
     private DictionaryDataBase dataBase;
     private ErrorHandler errorHandler;
     private final String dataBaseSavedPrefix= "[*]";
@@ -16,7 +16,7 @@ class RepositoryImpl implements Repository
     private final String incorrectInputMessage= "Incorrect Input";
     private final String connectionErrorMessage= "Connection Error";
 
-    RepositoryImpl(Service service, DictionaryDataBase dataBase, ErrorHandler errorHandler)
+    RepositoryImpl(WikipediaService service, DictionaryDataBase dataBase, ErrorHandler errorHandler)
     {
         this.service = service;
         this.dataBase = dataBase;

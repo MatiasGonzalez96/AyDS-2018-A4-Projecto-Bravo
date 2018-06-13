@@ -1,13 +1,13 @@
 package ayds.dictionary.bravo.Model;
 
 import android.content.Context;
-import Services.ServiceModule;
 import ayds.dictionary.bravo.Model.DataBase.DictionaryDataBase;
-import Services.Service;
 import ayds.dictionary.bravo.Model.DataBase.DictionaryModule;
 import ayds.dictionary.bravo.Model.Exception.ErrorHandler;
 import ayds.dictionary.bravo.Model.Exception.ExceptionModule;
 import ayds.dictionary.bravo.Model.Listener.DictionaryErrorListener;
+import wikipedia.service.WikipediaService;
+import wikipedia.service.WikipediaServiceModule;
 
 public class DictionaryModelModule
 {
@@ -17,7 +17,7 @@ public class DictionaryModelModule
     private DictionaryModelModule(Context context)
     {
         DictionaryDataBase dataBase = DictionaryModule.getInstance(context).getDictionaryDataBaseImpl();
-        Service service = ServiceModule.getInstance().getService();
+        WikipediaService service = WikipediaServiceModule.getInstance().getService();
         ErrorHandler errorHandler = ExceptionModule.getInstance().getErrorHandler();
         Repository repositoryImpl = new RepositoryImpl(service, dataBase, errorHandler);
         dictionaryModel = new DictionaryModelImpl(repositoryImpl);
