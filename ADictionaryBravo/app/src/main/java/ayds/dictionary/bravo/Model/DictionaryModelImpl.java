@@ -1,5 +1,7 @@
 package ayds.dictionary.bravo.Model;
 
+import java.util.List;
+
 import ayds.dictionary.bravo.Model.Listener.DictionaryErrorListener;
 import ayds.dictionary.bravo.Model.Listener.DictionaryModelListener;
 
@@ -31,19 +33,19 @@ class DictionaryModelImpl implements DictionaryModel
 
     @Override public void searchTerm(final String input)
     {
-        Definition definition = searchTermNow(input);
+        List<Definition> definition = searchTermNow(input);
         if(definition != null)
         {
             notifyModelListener(definition);
         }
     }
 
-    private Definition searchTermNow(String input)
+    private List<Definition> searchTermNow(String input)
     {
         return repositoryImpl.getTerm(input);
     }
 
-    private void notifyModelListener(Definition definition)
+    private void notifyModelListener(List<Definition> definition)
     {
         if (modelListener != null)
         {

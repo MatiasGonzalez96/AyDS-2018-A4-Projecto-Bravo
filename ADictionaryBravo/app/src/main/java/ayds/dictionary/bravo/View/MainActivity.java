@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.util.List;
 import ayds.dictionary.bravo.Model.Definition;
 import ayds.dictionary.bravo.R;
 import ayds.dictionary.bravo.Controller.DictionaryControllerModule;
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity
     dictionaryModel.setModelListener(new DictionaryModelListener()
     {
       @Override
-      public void didUpdateDefinition(Definition lastDefinition) {
+      public void didUpdateDefinition(List<Definition> lastDefinition) {
         insertDefinition(lastDefinition);
       }
     });
@@ -80,21 +81,28 @@ public class MainActivity extends AppCompatActivity
     });
   }
 
-  private void insertDefinition(final Definition lastDefinition)
+  private void insertDefinition(final List<Definition> lastDefinition)
   {
-    String searchedWord = inputText.getText().toString();
-    final String outputText = translateHelper.textToHtml(lastDefinition.getMeaning(), searchedWord);
-    final String outputSource = lastDefinition.getSource().toString();
-    runOnUiThread(new Runnable()
-    {
-      public void run()
+      String searchedWord = inputText.getText().toString();
+      String output = "";
+      for (Definition definition : lastDefinition)
       {
-        definitionPanel.setText(Html.fromHtml(outputText));
-        source.setText("Search in: " + outputSource);
-        inputText.setText("");
-        progressBar.setVisibility(View.GONE);
+          String definitionText = translateHelper.textToHtml(definition.getMeaning(), searchedWord);
+          String sourceText = definition.getSource().toString();
+          output += sourceText + definitionText;
       }
-    });
+
+      final String outputText = output;
+
+      runOnUiThread(new Runnable()
+      {
+        public void run()
+        {
+          definitionPanel.setText(Html.fromHtml(outputText));
+          inputText.setText("");
+          progressBar.setVisibility(View.GONE);
+        }
+      });
   }
 
   private void showError(final String message)

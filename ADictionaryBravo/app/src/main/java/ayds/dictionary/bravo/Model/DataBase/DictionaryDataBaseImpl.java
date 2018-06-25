@@ -25,9 +25,9 @@ class DictionaryDataBaseImpl implements DictionaryDataBase{
     conceptDataBase.termDao().insert(concept);
   }
 
-  public Definition getMeaning(String term)
+  public Definition getMeaning(String term, Source source)
   {
-    Concept concept = conceptDataBase.termDao().findByName(term);
+    Concept concept = conceptDataBase.termDao().findByNameAndSource(term, source.ordinal());
     if (concept != null)
     {
       Definition definition = new Definition();

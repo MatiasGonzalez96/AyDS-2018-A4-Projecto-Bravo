@@ -1,14 +1,16 @@
 package ayds.dictionary.bravo.Model;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 import ayds.dictionary.bravo.Model.DataBase.DictionaryDataBase;
 import ayds.dictionary.bravo.Model.Exception.ApplicationException;
 import ayds.dictionary.bravo.Model.Exception.ErrorHandler;
-import wikipedia.service.WikipediaService;
+import ayds.dictionary.bravo.Model.Service.ServicesDef;
+import ayds.dictionary.bravo.Model.Service.ServicesModule;
 
 class RepositoryImpl implements Repository
 {
-    private WikipediaService service;
     private DictionaryDataBase dataBase;
     private ErrorHandler errorHandler;
     private final String dataBaseSavedPrefix= "[*]";
@@ -16,49 +18,57 @@ class RepositoryImpl implements Repository
     private final String incorrectInputMessage= "Incorrect Input";
     private final String connectionErrorMessage= "Connection Error";
 
-    RepositoryImpl(WikipediaService service, DictionaryDataBase dataBase, ErrorHandler errorHandler)
+    RepositoryImpl(DictionaryDataBase dataBase, ErrorHandler errorHandler)
     {
-        this.service = service;
         this.dataBase = dataBase;
         this.errorHandler = errorHandler;
     }
 
-    public Definition getTerm(final String input)
+    public List<Definition> getTerm(final String input)
     {
-        Definition definition = null;
-        try {
-            if (invalidInput(input)) {
-                errorHandler.notifyError(new ApplicationException(incorrectInputMessage));
-                return null;
-            } else {
-                definition = dataBase.getMeaning(input);
-                if (definition != null) {
-                    String result = dataBaseSavedPrefix + definition.getMeaning();
-                    definition.setMeaning(result);
+        ServicesDef servicesDef = ServicesModule.getInstance().getServicesDef();
+        List<Source> sourceList = servicesDef.getSources();
+        List<Definition> definitionList = new LinkedList<>();
+
+        for (Source source : sourceList)
+        {
+            try {
+                if (invalidInput(input)) {
+                    errorHandler.notifyError(new ApplicationException(incorrectInputMessage));
+                    return null;
                 } else {
-                    String result = service.getMeaning(input);
-                    if (result != null && result != "") {
-                        definition = new Definition();
-                        definition.setTerm(input);
+                    Definition definition = dataBase.getMeaning(input, source);
+                    if (definition != null) {
+                        String result = dataBaseSavedPrefix + definition.getMeaning();
                         definition.setMeaning(result);
-                        definition.setSource(Source.WIKIPEDIA);
-                        dataBase.saveTerm(definition);
+                        definitionList.add(definition);
                     } else {
-                        definition = new Definition();
-                        definition.setMeaning(noResultsMessage);
-                        definition.setSource(Source.WIKIPEDIA);
+                        String result = servicesDef.getMeaning(input, source);
+                        if (result != null && result != "") {
+                            definition = new Definition();
+                            definition.setTerm(input);
+                            definition.setMeaning(result);
+                            definition.setSource(source);
+                            dataBase.saveTerm(definition);
+                            definitionList.add(definition);
+                        } else {
+                            definition = new Definition();
+                            definition.setMeaning(noResultsMessage);
+                            definition.setSource(source);
+                            definitionList.add(definition);
+                        }
                     }
                 }
             }
+            catch(IOException e)
+            {
+                errorHandler.notifyError(new ApplicationException(connectionErrorMessage));
+            }
+            catch (Exception e) {
+                errorHandler.notifyError(e);
+            }
         }
-        catch(IOException e)
-        {
-            errorHandler.notifyError(new ApplicationException(connectionErrorMessage));
-        }
-        catch (Exception e) {
-            errorHandler.notifyError(e);
-        }
-        return definition;
+        return definitionList;
     }
 
     private boolean invalidInput(String input)
