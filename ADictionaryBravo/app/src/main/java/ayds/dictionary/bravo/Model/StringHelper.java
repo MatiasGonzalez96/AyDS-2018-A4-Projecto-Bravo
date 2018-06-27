@@ -17,6 +17,6 @@ public class StringHelper
 
     public boolean onlyLetters(String input)
     {
-        return input.matches("[a-zA-Z]+");
+        return input.matches("[a-zA-Z_0-9 ]+");
     }
 }

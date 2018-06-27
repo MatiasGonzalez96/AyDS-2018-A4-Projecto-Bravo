@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity
 {
   private EditText inputText;
   private Button goButton;
-  private TextView definitionPanel, source;
+  private TextView definitionPanel;
   private ProgressBar progressBar;
   private DictionaryModel dictionaryModel;
   private TranslateHelper translateHelper;
@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity
   private void initComponents()
   {
     inputText = findViewById(R.id.textField1);
-    source = findViewById(R.id.title);
     goButton = findViewById(R.id.goButton);
     definitionPanel = findViewById(R.id.textPane1);
     progressBar = findViewById(R.id.progressBar);
@@ -89,7 +88,7 @@ public class MainActivity extends AppCompatActivity
       {
           String definitionText = translateHelper.textToHtml(definition.getMeaning(), searchedWord);
           String sourceText = definition.getSource().toString();
-          output += sourceText + definitionText;
+          output += "<u>Source:</u> " + sourceText + "<br><u>Definition:</u> " + definitionText + "<br><br>";
       }
 
       final String outputText = output;
@@ -98,9 +97,9 @@ public class MainActivity extends AppCompatActivity
       {
         public void run()
         {
-          definitionPanel.setText(Html.fromHtml(outputText));
-          inputText.setText("");
-          progressBar.setVisibility(View.GONE);
+            definitionPanel.setText(Html.fromHtml(outputText));
+            inputText.setText("");
+            progressBar.setVisibility(View.GONE);
         }
       });
   }
@@ -114,7 +113,6 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_LONG).show();
         definitionPanel.setText("");
         inputText.setText("");
-        source.setText("");
         progressBar.setVisibility(View.GONE);
       }
     });

@@ -16,12 +16,12 @@ public class ServiceFactoryImpl implements ServiceFactory
         serviceMap = new HashMap<>();
 
         ServiceDef wikipediaServiceAdapter = new WikipediaServiceAdapter(wikipediaService);
-        ServiceDef bigHugeLabsServiceAdapter = new BigHugeLabsServiceAdapter(bigHugeLabsService);
         ServiceDef yandexServiceAdapter = new YandexServiceAdapter(yandexService);
+        ServiceDef bigHugeLabsServiceAdapter = new BigHugeLabsServiceAdapter(bigHugeLabsService);
 
         serviceMap.put(Source.WIKIPEDIA, wikipediaServiceAdapter);
-        serviceMap.put(Source.BIGHUGELABS, bigHugeLabsServiceAdapter);
         serviceMap.put(Source.YANDEX, yandexServiceAdapter);
+        serviceMap.put(Source.BIGHUGELABS, bigHugeLabsServiceAdapter);
     }
 
     @Override

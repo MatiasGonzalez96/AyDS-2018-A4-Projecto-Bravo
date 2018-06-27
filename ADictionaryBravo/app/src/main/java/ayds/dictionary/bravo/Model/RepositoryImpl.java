@@ -37,13 +37,13 @@ class RepositoryImpl implements Repository
                     errorHandler.notifyError(new ApplicationException(incorrectInputMessage));
                     return null;
                 } else {
-                    Definition definition = dataBase.getMeaning(input, source);
+                    Definition definition = dataBase.getMeaning(input.trim(), source);
                     if (definition != null) {
                         String result = dataBaseSavedPrefix + definition.getMeaning();
                         definition.setMeaning(result);
                         definitionList.add(definition);
                     } else {
-                        String result = servicesDef.getMeaning(input, source);
+                        String result = servicesDef.getMeaning(input.trim(), source);
                         if (result != null && result != "") {
                             definition = new Definition();
                             definition.setTerm(input);
@@ -74,7 +74,7 @@ class RepositoryImpl implements Repository
     private boolean invalidInput(String input)
     {
         boolean result;
-        if(!StringHelper.getInstance().onlyLetters(input) || input.isEmpty() || input == null)
+        if(!StringHelper.getInstance().onlyLetters(input) || input.trim().isEmpty() || input == null)
         {
             result = true;
         }

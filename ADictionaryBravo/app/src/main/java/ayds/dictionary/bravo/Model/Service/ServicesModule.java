@@ -2,8 +2,8 @@ package ayds.dictionary.bravo.Model.Service;
 
 import com.example.yandex.service.ServiceModule;
 import com.example.yandex.service.TranslatorService;
-
 import SearchService.SearchService;
+import SearchService.SearchServiceModule;
 import wikipedia.service.WikipediaService;
 import wikipedia.service.WikipediaServiceModule;
 
@@ -25,7 +25,7 @@ public class ServicesModule
     public ServiceFactory getServiceFactory()
     {
         WikipediaService wikipediaService = WikipediaServiceModule.getInstance().getService();
-        SearchService bigHugeLabsService = SearchService.SearchServiceModule.getInstance().getSearchService();
+        SearchService bigHugeLabsService = SearchServiceModule.getInstance().getSearchService();
         TranslatorService yandexService = ServiceModule.getInstance().getTranslatorService();
 
         ServiceFactory serviceFactory = new ServiceFactoryImpl(wikipediaService, bigHugeLabsService, yandexService);
