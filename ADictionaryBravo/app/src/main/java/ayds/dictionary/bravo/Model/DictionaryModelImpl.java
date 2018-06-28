@@ -1,7 +1,6 @@
 package ayds.dictionary.bravo.Model;
 
 import java.util.List;
-
 import ayds.dictionary.bravo.Model.Listener.DictionaryErrorListener;
 import ayds.dictionary.bravo.Model.Listener.DictionaryModelListener;
 
