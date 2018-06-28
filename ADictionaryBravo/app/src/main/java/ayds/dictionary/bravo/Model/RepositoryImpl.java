@@ -39,7 +39,7 @@ class RepositoryImpl implements Repository
                     definitionList.add(definition);
                 } else {
                     String result = servicesDef.getMeaning(input.trim(), source);
-                    if (result != null && !result.isEmpty()) {
+                    if (!result.isEmpty()) {
                         definition = new Definition();
                         definition.setTerm(input);
                         definition.setMeaning(result);
