@@ -17,16 +17,17 @@ class RepositoryImpl implements Repository
     private final String noResultsMessage= "No Results";
     private final String incorrectInputMessage= "Incorrect Input";
     private final String connectionErrorMessage= "Connection Error";
+    private ServicesDef servicesDef;
 
     RepositoryImpl(DictionaryDataBase dataBase, ErrorHandler errorHandler)
     {
         this.dataBase = dataBase;
         this.errorHandler = errorHandler;
+        servicesDef = ServicesModule.getInstance().getServicesDef();
     }
 
     public List<Definition> getTerm(final String input)
     {
-        ServicesDef servicesDef = ServicesModule.getInstance().getServicesDef();
         List<Source> sourceList = servicesDef.getSources();
         List<Definition> definitionList = new LinkedList<>();
 

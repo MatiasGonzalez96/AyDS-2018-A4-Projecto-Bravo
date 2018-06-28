@@ -7,7 +7,7 @@ import ayds.dictionary.bravo.Model.Source;
 import wikipedia.service.WikipediaService;
 import SearchService.SearchService;
 
-public class ServiceFactoryImpl implements ServiceFactory
+class ServiceFactoryImpl implements ServiceFactory
 {
     private Map<Source, ServiceDef> serviceMap;
 

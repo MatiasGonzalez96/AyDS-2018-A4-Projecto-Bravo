@@ -2,11 +2,11 @@ package ayds.dictionary.bravo.Model.Service;
 
 import SearchService.*;
 
-public class BigHugeLabsServiceAdapter implements ServiceDef
+class BigHugeLabsServiceAdapter implements ServiceDef
 {
     private SearchService bighugeService;
 
-    public BigHugeLabsServiceAdapter(SearchService bighugeService)
+    BigHugeLabsServiceAdapter(SearchService bighugeService)
     {
         this.bighugeService = bighugeService;
     }

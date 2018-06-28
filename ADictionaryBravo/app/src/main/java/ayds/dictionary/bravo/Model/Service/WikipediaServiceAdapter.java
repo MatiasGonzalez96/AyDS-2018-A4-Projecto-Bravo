@@ -4,11 +4,11 @@ import java.io.IOException;
 
 import wikipedia.service.WikipediaService;
 
-public class WikipediaServiceAdapter implements ServiceDef
+class WikipediaServiceAdapter implements ServiceDef
 {
-    public WikipediaService wikipediaService;
+    private WikipediaService wikipediaService;
 
-    public WikipediaServiceAdapter(WikipediaService wikipediaService)
+    WikipediaServiceAdapter(WikipediaService wikipediaService)
     {
         this.wikipediaService = wikipediaService;
     }

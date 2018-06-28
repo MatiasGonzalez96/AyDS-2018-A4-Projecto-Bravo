@@ -2,17 +2,18 @@ package ayds.dictionary.bravo.Model.Service;
 
 import com.example.yandex.service.TranslatorService;
 
-public class YandexServiceAdapter implements ServiceDef
+class YandexServiceAdapter implements ServiceDef
 {
-    public TranslatorService yandexService;
+    private TranslatorService yandexService;
 
-    public YandexServiceAdapter(TranslatorService yandexService)
+    YandexServiceAdapter(TranslatorService yandexService)
     {
         this.yandexService = yandexService;
     }
 
     @Override
-    public String getMeaning(String input) throws Exception{
+    public String getMeaning(String input) throws Exception
+    {
         String result = yandexService.callCreateTranslatedWord(input);
         return result;
     }
