@@ -19,7 +19,7 @@ class ErrorHandlerImpl implements ErrorHandler
             if(entry.getValue() instanceof InvalidInputException || entry.getValue() instanceof ModelNoConnectionException)
                 exceptionMessage += entry.getKey() + ": "+entry.getValue().getMessage()+"\n";
             else
-                exceptionMessage += entry.getKey() + ": Error inesperado\n";
+                exceptionMessage += entry.getKey() + ": Unexpected Error\n";
         }
         notifyError(exceptionMessage);
     }
