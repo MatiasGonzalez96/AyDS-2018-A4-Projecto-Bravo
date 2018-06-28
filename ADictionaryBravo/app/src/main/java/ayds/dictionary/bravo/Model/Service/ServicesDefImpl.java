@@ -9,9 +9,9 @@ class ServicesDefImpl implements ServicesDef
 {
     private ServiceFactory serviceFactory;
 
-    ServicesDefImpl()
+    ServicesDefImpl(ServiceFactory serviceFactory)
     {
-        serviceFactory = ServicesModule.getInstance().getServiceFactory();
+        this.serviceFactory = serviceFactory;
     }
 
     @Override

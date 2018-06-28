@@ -19,4 +19,18 @@ public class StringHelper
     {
         return input.matches("[a-zA-Z_0-9 ]+");
     }
+
+    public boolean invalidInput(String input)
+    {
+        boolean result;
+        if(!onlyLetters(input) || input.trim().isEmpty() || input == null)
+        {
+            result = true;
+        }
+        else
+        {
+            result = false;
+        }
+        return result;
+    }
 }

@@ -6,6 +6,8 @@ import ayds.dictionary.bravo.Model.DataBase.DictionaryModule;
 import ayds.dictionary.bravo.Model.Exception.ErrorHandler;
 import ayds.dictionary.bravo.Model.Exception.ExceptionModule;
 import ayds.dictionary.bravo.Model.Listener.DictionaryErrorListener;
+import ayds.dictionary.bravo.Model.Service.ServicesDef;
+import ayds.dictionary.bravo.Model.Service.ServicesModule;
 
 public class DictionaryModelModule
 {
@@ -16,7 +18,8 @@ public class DictionaryModelModule
     {
         DictionaryDataBase dataBase = DictionaryModule.getInstance(context).getDictionaryDataBaseImpl();
         ErrorHandler errorHandler = ExceptionModule.getInstance().getErrorHandler();
-        Repository repositoryImpl = new RepositoryImpl(dataBase, errorHandler);
+        ServicesDef servicesDef = ServicesModule.getInstance().getServicesDef();
+        Repository repositoryImpl = new RepositoryImpl(dataBase, errorHandler, servicesDef);
         dictionaryModel = new DictionaryModelImpl(repositoryImpl);
     }
 

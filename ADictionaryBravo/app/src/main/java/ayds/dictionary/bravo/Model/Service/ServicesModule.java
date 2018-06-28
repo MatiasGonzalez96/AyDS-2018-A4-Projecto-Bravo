@@ -4,6 +4,7 @@ import com.example.yandex.service.ServiceModule;
 import com.example.yandex.service.TranslatorService;
 import SearchService.SearchService;
 import SearchService.SearchServiceModule;
+import ayds.dictionary.bravo.Model.StringHelper;
 import wikipedia.service.WikipediaService;
 import wikipedia.service.WikipediaServiceModule;
 
@@ -27,14 +28,15 @@ public class ServicesModule
         WikipediaService wikipediaService = WikipediaServiceModule.getInstance().getService();
         SearchService bigHugeLabsService = SearchServiceModule.getInstance().getSearchService();
         TranslatorService yandexService = ServiceModule.getInstance().getTranslatorService();
-
-        ServiceFactory serviceFactory = new ServiceFactoryImpl(wikipediaService, bigHugeLabsService, yandexService);
+        StringHelper stringHelper = StringHelper.getInstance();
+        ServiceFactory serviceFactory = new ServiceFactoryImpl(wikipediaService, bigHugeLabsService, yandexService, stringHelper);
         return serviceFactory;
     }
 
     public ServicesDef getServicesDef()
     {
-        ServicesDef servicesDef = new ServicesDefImpl();
+        ServiceFactory serviceFactory = getServiceFactory();
+        ServicesDef servicesDef = new ServicesDefImpl(serviceFactory);
         return servicesDef;
     }
 }
